@@ -1,2 +1,9 @@
-h1= title
-p Welcome to #{title}
+h1 hi
+script(src="/socket.io/socket.io.js", type="application/javascript")
+
+:javascript
+  | var socket = new io.Socket();
+  | socket.connect();
+  | socket.on('connect', function(){  });
+  | socket.on('message', function(){  });
+  | socket.on('disconnect', function(){ });

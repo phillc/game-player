@@ -1,4 +1,4 @@
-express = require('express')
+express = require 'express'
 app = express.createServer()
 
 app.configure ->
@@ -16,12 +16,13 @@ app.configure 'production', ->
   app.use express.errorHandler()
 
 app.get '/', (req, res) -> 
-  res.render 'index', {
-    locals: {
-      title: 'Game'
-    }
-  }
-
+  res.render 'index'
 
 app.listen(3000)
 console.log("Express server listening on port %d", app.address().port)
+
+
+io = require 'socket.io'
+socket = io.listen app
+socket.on 'connection', ->
+  console.log "connection made"
