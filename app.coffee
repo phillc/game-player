@@ -21,8 +21,11 @@ app.get '/', (req, res) ->
 app.listen(3000)
 console.log("Express server listening on port %d", app.address().port)
 
-
 io = require 'socket.io'
 socket = io.listen app
-socket.on 'connection', ->
+socket.on 'connection', (client) ->
   console.log "connection made"
+  client.on 'disconnect', ->
+    console.log "disconnected"
+  client.on 'message', (data) ->
+    console.log "received " + data

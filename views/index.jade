@@ -1,9 +1,17 @@
-h1 hi
-script(src="/socket.io/socket.io.js", type="application/javascript")
+div(id="bot_choose")
+  please choose a bot to play
+  ol(id="selectable")
+  	li(class="ui-widget-content") Item 1
+  	li(class="ui-widget-content") Item 2
+  	li(class="ui-widget-content") Item 3
+  	li(class="ui-widget-content") Item 4
+  	li(class="ui-widget-content") Item 5
+  	li(class="ui-widget-content") Item 6
+  	li(class="ui-widget-content") Item 7
 
-:javascript
-  | var socket = new io.Socket();
-  | socket.connect();
-  | socket.on('connect', function(){  });
-  | socket.on('message', function(){  });
-  | socket.on('disconnect', function(){ });
+canvas(id="canvas", width="300", height="300")
+
+script(src="/javascripts/jquery-1.4.4.min.js", type="application/javascript")
+script(src="/javascripts/jquery-ui-1.8.9.min.js", type="application/javascript")
+script(src="/socket.io/socket.io.js", type="application/javascript")
+script(src="/javascripts/game.js", type="application/javascript")
