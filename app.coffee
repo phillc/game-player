@@ -1,6 +1,7 @@
 express = require 'express'
-app = express.createServer()
+net = require('net')
 
+app = express.createServer()
 app.configure ->
   app.set 'views', __dirname + '/views'
   app.set 'view engine', 'jade'
@@ -19,7 +20,8 @@ app.get '/', (req, res) ->
   res.render 'index'
 
 app.listen(3000)
-console.log("Express server listening on port %d", app.address().port)
+
+console.log("Express server listening for web traffic on port %d", app.address().port)
 
 io = require 'socket.io'
 socket = io.listen app
@@ -29,3 +31,14 @@ socket.on 'connection', (client) ->
     console.log "disconnected"
   client.on 'message', (data) ->
     console.log "received " + data
+    
+
+
+
+server = net.createServer (socket) ->
+  socket.addListener "connect", ->
+    console.log "connected a tcp connection"
+    socket.end("Hello World\n")
+
+server.listen(4000)
+console.log("TCP server listening on port 7000.");
