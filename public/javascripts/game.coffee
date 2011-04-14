@@ -2,6 +2,8 @@
 #   alert("hi");
 # });
 canvas = new fabric.Element "canvas", { backgroundColor : "black"}
+canvas.setHeight window.innerHeight
+canvas.setWidth window.innerWidth
 
 rect = new fabric.Rect {
   top: 100,
