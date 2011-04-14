@@ -1,7 +1,7 @@
 # now.ready(function(){
 #   alert("hi");
 # });
-canvas = new fabric.Element "canvas"
+canvas = new fabric.Element "canvas", { backgroundColor : "black"}
 
 rect = new fabric.Rect {
   top: 100,
@@ -12,3 +12,11 @@ rect = new fabric.Rect {
 }
 
 canvas.add(rect)
+
+
+
+Turn = Backbone.Model.extend({})
+TurnCollection = Backbone.Collection.extend({
+  model: Turn
+})
+
