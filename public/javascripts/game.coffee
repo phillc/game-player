@@ -16,7 +16,6 @@ rect = new fabric.Rect {
 canvas.add(rect)
 
 
-
 Turn = Backbone.Model.extend({})
 TurnCollection = Backbone.Collection.extend({
   model: Turn
